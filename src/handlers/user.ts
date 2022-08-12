@@ -91,7 +91,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
 const routes = (app: express.Application): void => {
 	app.get('/users', authenticate, roleAllowed(Role.Admin), all);
 	app.get('/users/:id', authenticate, authorizedUser(), show);
-	app.post('/users', createUserValidators(), authenticate, roleAllowed(Role.Admin), create);
+	app.post('/users', createUserValidators(), create);
 	app.post('/users/login', createUserValidators(), login);
 };
 
